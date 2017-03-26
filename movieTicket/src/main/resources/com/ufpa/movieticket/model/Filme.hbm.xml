@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/03/2017 21:20:44 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ufpa.movieticket.model.Filme" table="filme" catalog="bd_sistemaCinema" optimistic-lock="version">
+        <id name="pkFilme" type="java.lang.Integer">
+            <column name="pk_filme" />
+            <generator class="identity" />
+        </id>
+        <property name="nomeFilme" type="string">
+            <column name="nome_filme" length="100" not-null="true" />
+        </property>
+        <property name="genero" type="string">
+            <column name="genero" length="100" not-null="true" />
+        </property>
+        <property name="sinopse" type="string">
+            <column name="sinopse" length="250" not-null="true" />
+        </property>
+        <property name="anoLancamento" type="date">
+            <column name="ano_lancamento" length="10" not-null="true" />
+        </property>
+        <property name="classificacao" type="string">
+            <column name="classificacao" length="16" not-null="true" />
+        </property>
+        <set name="exibicaos" table="exibicao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_filme" not-null="true" />
+            </key>
+            <one-to-many class="com.ufpa.movieticket.model.Exibicao" />
+        </set>
+    </class>
+</hibernate-mapping>

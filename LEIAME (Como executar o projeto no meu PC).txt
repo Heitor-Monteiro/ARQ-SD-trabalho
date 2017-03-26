@@ -1,0 +1,34 @@
+1 – execute o script “bd_sistemaCinema.sql” que está na pasta BD, faça isso no MySql Workbench;
+––– Obs.: se você utiliza Windows abra o arquivo “bd_sistemaCinema.mwb” e gere o script para depois executá-lo no  Workbench;
+
+2 – O projeto demanda criar um usuário novo no MySql, utilize o comando abaixo para criá-lo:
+––– comando: 
+
+	grant all on *.* to usetrabalho@localhost identified by 'minhasenha';
+
+––– Obs.: é só copiar e colar o comando com ponto e virgula junto
+––– Usuário e senha do BD do sistema: user:  usetrabalho | senha:  minhasenha
+––– Para utilizar o comando acima, você deve entrar no MySql pelo Terminal (Linux) ou CMC (Windows)
+
+––– comando para entrar no MySQL: mysql -u root -p
+––– Obs.: no Windows geralmente não tem senha, só aperta enter;
+––– Obs.: no Linux geralmente é a senha que você utiliza no usuário;
+
+Obs.: É necessário padronizar esse usuário no MySQl,
+acredito que cada colaborador do projeto possui
+usuário e senha diferentes. A padronização vai evitar
+modificação desnecessária no arquivo “hibernate.cfg”
+
+
+3 – Abra o projeto movieTicket no NetBeans
+
+4 – Baixar dependências do projeto
+ ––– Obs.: Necessita de Internet
+ ––– clique com o botão direito no nome do projeto
+ ––– Escolha a opção “Construir Dependências”
+ ––– Espere baixar as dependências
+
+5 – Clique com o botão direito no nome do projeto, clique em “Limpar e Construir”
+
+
+Agora é só executar
