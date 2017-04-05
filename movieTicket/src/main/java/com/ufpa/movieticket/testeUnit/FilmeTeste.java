@@ -5,7 +5,7 @@
  */
 package com.ufpa.movieticket.testeUnit;
 
-import com.ufpa.movieticket.bean.FilmeBean;
+import com.ufpa.movieticket.bean.MBfilme;
 import java.util.Date;
 
 /**
@@ -19,7 +19,7 @@ public class FilmeTeste {
         Date data = new Date(2017, 03, 02);
         
         
-        FilmeBean teste = new FilmeBean();
+        MBfilme teste = new MBfilme();
         
         teste.getFilme().setNomeFilme("Logan");
         teste.getFilme().setGenero("Ação");

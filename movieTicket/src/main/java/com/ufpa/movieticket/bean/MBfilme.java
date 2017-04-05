@@ -13,9 +13,9 @@ import javax.faces.bean.ViewScoped;
  *
  * @author thiberius
  */
-@ManagedBean(name = "filmeBean")
+@ManagedBean(name = "MBfilme")
 @ViewScoped
-public class FilmeBean extends AbstractBean {
+public class MBfilme extends AbstractBean {
 
     private Filme filme;
 
