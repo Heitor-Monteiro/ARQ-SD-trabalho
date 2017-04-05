@@ -7,7 +7,7 @@
         .itemMenu{
             cursor: pointer;
             display: block;
-            padding: 5px 0px 5px 0px;
+            padding: 8px 0px 8px 0px;
         }
 
         .itemMenu:hover{
@@ -28,7 +28,7 @@
         .icoMenu2.is-rotacao {
             transform: rotate(45deg);
         }
-        
+
         .icoHover:hover{font-weight: bold;}
     </style>
 
@@ -38,27 +38,27 @@
 
     <nav class="LADES-sidebar js-sidebar w3-sidenav w3-blue-MovieTicket card-4" style="width:270px;">
 
-<!--
-        <div id="userNameNik2"
-             style="font-size: 15px; background: #00B59B;height: 73px;">
-
-            <i class="fa fa-user"
-               style="margin: 30px 20px 20px 15px;
-               color: #fff;" ></i>
-
-            <p:outputLabel value=""
-                           style="color: #fff;
-                           margin-right: 10px;" />
-
-            <p:button value="Sair"
-                      icon="fa fa-sign-out"
-                      style="font-family: Open Sans, Helvetica, Arial;
-                      border-radius: 3px;
-                      max-width: 400px;
-                      color: #ffffff;
-                      background: #008471" />
-        </div>
--->
+        <!--
+                <div id="userNameNik2"
+                     style="font-size: 15px; background: #00B59B;height: 73px;">
+        
+                    <i class="fa fa-user"
+                       style="margin: 30px 20px 20px 15px;
+                       color: #fff;" ></i>
+        
+                    <p:outputLabel value=""
+                                   style="color: #fff;
+                                   margin-right: 10px;" />
+        
+                    <p:button value="Sair"
+                              icon="fa fa-sign-out"
+                              style="font-family: Open Sans, Helvetica, Arial;
+                              border-radius: 3px;
+                              max-width: 400px;
+                              color: #ffffff;
+                              background: #008471" />
+                </div>
+        -->
 
 
         <p:link class="itemMenu"
@@ -125,6 +125,24 @@
             </div>
         </div>
 
+        
+        
+        
+        
+        <p:link class="itemMenu"
+                rendered="true"
+                outcome="/telas/cad-cliente" >
+            <i class="fa fa-user-plus"
+               style="margin: 0px 18px 0px 0px;"></i>
+            <p:outputLabel value="Cadastre-se"
+                           style="font-family: Open Sans, Helvetica, Arial;cursor: pointer;" />
+        </p:link>
+        
+        
+        
+        
+        
+        
         <p:link class="itemMenu"
                 rendered="true" >
             <i class="fa fa-stethoscope"
@@ -132,7 +150,7 @@
             <p:outputLabel value="Nova consulta"
                            style="font-family: Open Sans, Helvetica, Arial;cursor: pointer;" />
         </p:link>
-        
+
         <p:link class="itemMenu"
                 rendered="true" >
             <i class="fa fa-search"
@@ -157,171 +175,4 @@
                            style="font-family: Open Sans, Helvetica, Arial;cursor: pointer;" />
         </p:link>
     </nav>
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--
-    <div class="LADES-sidebar js-sidebar">
-        <ul>
-            <li>
-                <p:link value="Home" />
-            </li>
-          
-            <li class="">
-                <p:link id="flip" value="Menu" />
-                <ul id="panel" >
-                    <li>
-                        <p:link value="Menu 1" />
-                        <ul>
-                            <li>
-                                <p:link value="Menu 1.1" />
-                            </li>
-                            <li>
-                                <p:link value="Menu 1.2" />
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <p:link value="Menu 2" />
-                    </li>
-                </ul>
-            </li>
-            
-            <li>
-                <p:link value="Opções" />
-            </li>
-            <li>
-                <p:link value="Contact" />
-            </li>
-        </ul>
-    </div>
-    -->
-
-
-
-    <!--
-    <div id="flip" class="LADES-sidebar js-sidebar">
-        <p:link id="flip" value="teste" />
-        <div id="panel">Hello world!</div>
-    </div>-->
-
-
-
-    <!--
-    <div class="content">
-    
-    
-    <div class="sidebar">
-        <div class="sidebar-dropdown"><a href="#">Navigation</a></div>
-
-       
-        <ul id="nav">
-          
-            <li class="open">
-                <p:link value="Homer" />
-            </li>
-            
-            <li class="has_sub">
-                <p:link value="Widgets" />
-                <ul>
-                    <li><p:link value="Widgets #1" /></li>
-                    <li><p:link value="Widgets #1" /></li>
-                    <li><p:link value="Widgets #1" /></li>
-                </ul>
-            </li> 
-            
-            <li class="has_sub">
-                <p:link value="Pages #1" />
-                <ul>
-                    <li><p:link value="Widgets #1" /></li>
-                    <li><p:link value="Widgets #1" /></li>
-                    <li><p:link value="Widgets #1" /></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-     Sidebar ends -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--
-    <p:panelMenu class="LADES-sidebar ">
-        <p:menuitem value="Cadastrar Cliente"
-                    outcome="/SIHV_Telas_Adm/ADM_cad_cliente"
-                    icon="fa fa-user" />
-        <p:submenu label="Cadastro" icon="fa fa-pencil" class="ui-menu">
-            <p:menuitem value="Cadastrar Cliente"
-                        outcome="/SIHV_Telas_Adm/ADM_cad_cliente"
-                        icon="fa fa-user" />
-            <p:menuitem value="Cadastrar Animal"
-                        outcome="/SIHV_Telas_Adm/ADM_cad_basico_animal"
-                        icon="fa fa-paw" />
-        </p:submenu>
-        
-        <p:submenu label="Cadastrar usuário do sistema" icon="fa fa-user-secret">
-            <p:menuitem value="Cadastrar residente"
-                        outcome="/SIHV_Telas_Adm/cadUSER_medico"
-                        icon="fa fa-user-md" />
-            <p:menuitem value="Cadastrar recepcionista"
-                        outcome="/SIHV_Telas_Adm/cadUSER_aluno"
-                        icon="fa fa-user" />
-            <p:menuitem value="Cadastrar funcionário/técnico"
-                        outcome="/SIHV_Telas_Adm/cadUSER_tecnico"
-                        icon="fa fa-user" />
-        </p:submenu>
-        
-        <p:submenu label="Consulta" icon="fa fa-stethoscope">
-            <p:menuitem value="Nova consulta"
-                        outcome="/SIHV_Telas_Exame/Nova_Consulta"
-                        icon="fa fa-pencil" />
-        </p:submenu>
-        
-    </p:panelMenu>
-    -->
-
 </ui:component>

@@ -13,9 +13,9 @@ import javax.faces.bean.ViewScoped;
  *
  * @author thiberius
  */
-@ManagedBean(name = "cartaoCredBean")
+@ManagedBean(name = "MBcartaoCred")
 @ViewScoped
-public class CartaoCredBean extends AbstractBean {
+public class MBcartaoCred extends AbstractBean {
 
     private Cartaocred cartaoCred;
 

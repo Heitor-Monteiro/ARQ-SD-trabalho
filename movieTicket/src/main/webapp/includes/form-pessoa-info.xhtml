@@ -1,0 +1,59 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+              xmlns:p="http://primefaces.org/ui" 
+              xmlns:h="http://xmlns.jcp.org/jsf/html" 
+              xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <div class="ui-fluid">
+        <p:panelGrid id="pessoaFormInfo"
+                     columns="2"
+                     layout="grid"
+                     styleClass="panelgrid-noborder"
+                     columnClasses="ui-grid-col-4, ui-grid-col-3" >
+
+
+
+
+
+            <p:outputLabel value="CPF:" />
+            <p:outputLabel value="#{MBpessoa.pessoa.cpf}" />
+
+
+            
+            
+            
+            <p:outputLabel value="Nome:" />
+            <p:outputLabel value="#{MBpessoa.pessoa.nomePessoa}" />
+
+
+
+            
+            
+            <p:outputLabel value="Endereço de email:"/>
+            <p:outputLabel value="#{MBpessoa.pessoa.email}" />
+            
+            
+            
+            
+            
+            
+            <p:outputLabel value="Como gostaria de ser chamado(a):" />
+            <p:outputLabel value="#{MBpessoa.pessoa.nikePessoa}" />
+            
+            
+            
+            
+            
+            
+            <p:outputLabel value="Senha de usuário:" />
+            <p:outputLabel value="#{MBpessoa.pessoa.senha}" />
+
+
+
+            
+            
+        </p:panelGrid>
+    </div>
+
+</ui:component>

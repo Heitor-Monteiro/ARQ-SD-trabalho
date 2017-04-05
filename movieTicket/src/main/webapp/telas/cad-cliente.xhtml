@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="/WEB-INF/templates/Layout.xhtml">
+
+        <ui:define name="content">
+            <h1 class="aw-page-title">Cadastre-se</h1>
+
+            <h:form>
+                <p:wizard nextLabel="próximo"
+                          backLabel="voltar" >
+
+                    <p:tab id="etapa1" title="Dados pessoais" >
+                        <p:panel>
+                            <ui:include src="/includes/form-pessoa.xhtml" />
+
+                            <p:commandButton type="reset" 
+                                             id="LimparCampos" 
+                                             icon="fa fa-eraser" 
+                                             value="Limpar cadastro" 
+                                             action="#" />
+                        </p:panel>
+                    </p:tab>
+
+
+
+
+
+                    <p:tab id="etapa3" title="Dados do cartão" >
+                        <p:panel>
+                            <ui:include src="/includes/form-cartao.xhtml" />
+                        </p:panel>
+                    </p:tab>
+
+
+                    <p:tab id="etapa4" title="Confirmação">
+                        <p:panel>
+
+                            <ui:include src="/includes/form-pessoa-info.xhtml" />
+
+                            <ui:include src="/includes/form-cartao-info.xhtml" />
+
+                            <p:separator />
+
+
+                            <p:panelGrid columns="1"
+                                         layout="grid"
+                                         styleClass="panelgrid-noborder"
+                                         columnClasses="ui-grid-col-12" >
+                                <p:outputLabel value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non volutpat ipsum, non vestibulum orci. Vivamus viverra porta odio imperdiet accumsan. Maecenas a metus sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla quam dolor, facilisis ac interdum et, convallis at urna." />
+                            </p:panelGrid>
+
+                            <p:panelGrid columns="3"
+                                         layout="grid"
+                                         styleClass="panelgrid-noborder"
+                                         columnClasses="ui-grid-col-4, ui-grid-col-3, ui-grid-col-4" >
+
+                                <p:outputLabel value="Aceito o termo de uso do site:"
+                                               rendered="true"
+                                               for="termo" />
+                                <p:selectOneRadio id="termo"
+                                                  required="true"
+                                                  requiredMessage="Você deve aceitar o termo de consentimento!"
+                                                  value="#{MBpessoa.termoUso}">
+                                    <f:selectItem itemLabel="Estou ciente e concordo" itemValue="true" />
+                                </p:selectOneRadio>
+                                <p:message for="termo"
+                                           rendered="true" />
+                            </p:panelGrid>
+
+
+                            <div style="float: right; line-height: 58px; margin-right: -20px" >
+
+                                <p:commandButton action="#{MBpessoa.cadastrarCliente()}" 
+                                                 value="Salvar"
+                                                 style="width: 170px;"
+                                                 icon="fa fa-save"
+                                                 update="growl" 
+                                                 disabled="false" />
+
+                                <p:button value="Novo cadastro" 
+                                          outcome="/telas/cad-cliente.xhtml"
+                                          icon="fa fa-user-plus" 
+                                          style="width: 170px;" />
+
+                                <p:button value="Sair" 
+                                          outcome="/index"
+                                          icon="fa fa-home" 
+                                          style="width: 170px;" />
+
+                            </div>
+                        </p:panel>
+                    </p:tab>
+
+
+                </p:wizard>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

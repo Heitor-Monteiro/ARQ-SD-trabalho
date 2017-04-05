@@ -1,0 +1,55 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+              xmlns:p="http://primefaces.org/ui" 
+              xmlns:h="http://xmlns.jcp.org/jsf/html" 
+              xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <div class="ui-fluid">
+        <p:panelGrid id="formCard"
+                     columns="3"
+                     layout="grid"
+                     styleClass="panelgrid-noborder"
+                     columnClasses="ui-grid-col-4, ui-grid-col-3, ui-grid-col-4" >
+
+
+
+
+
+            <p:outputLabel value="Numero do cartão:"
+                           rendered="true"
+                           for="cartao" />                                
+            <p:inputMask mask="9999999999999"
+                         id="cartao"
+                         rendered="true"
+                         value="#{MBpessoa.cartaoCred.numCartao}" 
+                         title="Ex.: 9759604657384" 
+                         required="true" 
+                         requiredMessage="Informe o numero do cartão!" />
+            <p:message for="cartao"
+                       rendered="true" />
+            
+            
+            
+            
+            
+            
+            <p:outputLabel value="Código de segurança:"
+                           rendered="true"
+                           for="codSecurity" />                                
+            <p:inputMask mask="999"
+                         id="codSecurity"
+                         rendered="true"
+                         value="#{MBpessoa.cartaoCred.codSeguranca}" 
+                         title="Ex.: 975" 
+                         required="true" 
+                         requiredMessage="Informe o código de segurança do cartão!" />
+            <p:message for="codSecurity"
+                       rendered="true" />
+
+
+
+        </p:panelGrid>
+    </div>
+
+</ui:component>

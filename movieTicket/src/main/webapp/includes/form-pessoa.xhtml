@@ -1,0 +1,139 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+              xmlns:p="http://primefaces.org/ui" 
+              xmlns:h="http://xmlns.jcp.org/jsf/html" 
+              xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <div class="ui-fluid">
+        <p:panelGrid id="pessoaForm"
+                     columns="3"
+                     layout="grid"
+                     styleClass="panelgrid-noborder"
+                     columnClasses="ui-grid-col-4, ui-grid-col-3, ui-grid-col-4" >
+
+
+
+
+
+            <p:outputLabel value="CPF:"
+                           rendered="true"
+                           for="cpf" />                                
+            <p:inputMask mask="999.999.999-99"
+                         id="cpf"
+                         rendered="true"
+                         value="#{MBpessoa.pessoa.cpf}" 
+                         title="Ex.: 999.999.999-99" 
+                         required="true" 
+                         requiredMessage="Informe o CPF!" />
+            <p:message for="cpf"
+                       rendered="true" />
+
+
+
+
+
+
+
+            <p:outputLabel value="Nome:"
+                           rendered="true"
+                           for="nome" />
+            <p:inputText id="nome" 
+                         value="#{MBpessoa.pessoa.nomePessoa}" 
+                         title="Beltrano Silva"
+                         maxlength="100"
+                         rendered="true"
+                         required="true" 
+                         requiredMessage="Informe seu nome!"/>
+            <p:message for="nome"
+                       rendered="true" />
+
+
+
+
+
+
+
+
+            <p:outputLabel value="Endereço de email:"
+                           rendered="true"
+                           for="email_obr" />
+            <p:inputText id="email_obr" 
+                         value="#{MBpessoa.pessoa.email}" 
+                         title="Ex.: usuario@email.com"
+                         rendered="true"
+                         maxlength="100"
+                         required="true" 
+                         requiredMessage="Por favor, informe seu e-mail!"
+                         validatorMessage="Formato de e-mail incorreto! Ex.: usuario@email.com" >
+                <f:validateRegex
+                    pattern="^[_A-Za-z0-9- \+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+            </p:inputText>
+            <p:message for="email_obr"/>
+
+
+
+
+
+
+
+            <p:outputLabel value="Como gostaria de ser chamado(a):"
+                           rendered="true"
+                           for="nomeNike" />
+            <p:inputText id="nomeNike" 
+                         value="#{MBpessoa.pessoa.nikePessoa}" 
+                         title="Beltrano Silva"
+                         maxlength="100"
+                         rendered="true"
+                         required="true" 
+                         requiredMessage="Informe como gostaria de se chamar!"/>
+            <p:message for="nomeNike"
+                       rendered="true" />
+
+
+
+
+
+
+
+
+
+            <p:outputLabel value="Senha de usuário:"
+                           for="senha1" />
+            <p:password id="senha1"
+                        feedback="true"
+                        inline="true"
+                        match="senha2"
+                        value="#{MBpessoa.pessoa.senha}"
+                        title="A senha pode conter números, letras e caracteres especiais."
+                        promptLabel="Digite uma senha"
+                        weakLabel="Fraco"
+                        goodLabel="Boa"
+                        strongLabel="Forte"
+                        maxlength="100"
+                        required="true" 
+                        requiredMessage="Informe uma senha!" />
+            <p:message for="senha1" />
+
+
+
+
+
+
+            <p:outputLabel value="Digite novamente a senha:"
+                           for="senha2" />
+            <p:password id="senha2"
+                        feedback="true"
+                        inline="true"
+                        promptLabel="Digite uma senha"
+                        weakLabel="Fraco"
+                        goodLabel="Boa"
+                        strongLabel="Forte"
+                        maxlength="100"
+                        required="true"
+                        requiredMessage="Digite novamente sua senha!" />
+            <p:message for="senha2" />
+        </p:panelGrid>
+    </div>
+
+</ui:component>
