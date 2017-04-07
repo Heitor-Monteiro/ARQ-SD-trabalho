@@ -56,11 +56,10 @@ public class MBpessoa extends AbstractBean {
 
     private void criarCartaoCred(Pessoa pessoa) {
         try {
-            GenericoDAO obj = (GenericoDAO) Naming.lookup("rmi://192.168.1.101:5001/GenericoDAO");
             CartaocredId id = new CartaocredId();
             id.setFkPessoa(pessoa.getPkPessoa());
             cartaoCred.setId(id);
-            obj.save(cartaoCred);
+            rmiDaoGenerico().save(cartaoCred);
         } catch (Exception e) {
         }
     }

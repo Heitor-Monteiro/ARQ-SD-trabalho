@@ -18,9 +18,11 @@ import java.util.Date;
  */
 public abstract class AbstractBean implements Serializable {
 
+    private final String ip = "10.42.0.71";
+
     public GenericoDAO rmiDaoGenerico() {
         try {
-            GenericoDAO obj = (GenericoDAO) Naming.lookup("rmi://192.168.1.101:5001/GenericoDAO");
+            GenericoDAO obj = (GenericoDAO) Naming.lookup("rmi://" + ip + ":5001/GenericoDAO");
             return obj;
         } catch (Exception e) {
         }
@@ -43,5 +45,9 @@ public abstract class AbstractBean implements Serializable {
             data = new Date();
         }
         return data;
+    }
+
+    public String getIp() {
+        return ip;
     }
 }

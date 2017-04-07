@@ -16,7 +16,7 @@ import java.rmi.RemoteException;
  * @author thiberius
  */
 public class ServerMovieTicket {
-    private static final String ip = "192.168.1.101";
+    private static final String ip = "10.42.0.71";
 
     public static void main(String args[]) throws RemoteException {
         startGenericoDAO();
