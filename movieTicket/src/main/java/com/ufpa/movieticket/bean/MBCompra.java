@@ -15,9 +15,9 @@ import javax.faces.bean.ViewScoped;
  *
  * @author thiberius
  */
-@ManagedBean(name = "compraBean")
+@ManagedBean(name = "MBcompra")
 @ViewScoped
-public class CompraBean extends AbstractBean {
+public class MBCompra extends AbstractBean {
 
     private Compra compra;
     private int pkExibicao;

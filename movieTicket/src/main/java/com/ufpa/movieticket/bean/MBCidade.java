@@ -5,7 +5,7 @@
  */
 package com.ufpa.movieticket.bean;
 
-import com.ufpa.movieticket.model.Cinema;
+import com.ufpa.movieticket.model.Cidade;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -13,31 +13,30 @@ import javax.faces.bean.ViewScoped;
  *
  * @author thiberius
  */
-@ManagedBean(name = "cinemaBean")
+@ManagedBean(name = "MBcidade")
 @ViewScoped
-public class CinemaBean extends AbstractBean {
+public class MBCidade extends AbstractBean {
 
-    private Cinema cinema;
+    private Cidade cidade;
 
-    public void cadastrarCinema() {
+    public void cadastrarCidade() {
         try {
-            getDaoGenerico().save(cinema);
-            getObjMessage().info("Cadastro efetuado!", "Cinema cadastrado com sucesso");
+            getDaoGenerico().save(cidade);
+            getObjMessage().info("Cadastro efetuado!", "Cidade cadastrada com sucesso");
         } catch (Exception e) {
             getObjMessage().warn("Cadastro não efetuado!", "O cadastro não foi realizado");
         }
-        
+
     }
 
-    public Cinema getCinema() {
-        if (cinema == null) {
-            cinema = new Cinema();
+    public Cidade getCidade() {
+        if (cidade == null) {
+            cidade = new Cidade();
         }
-        return cinema;
+        return cidade;
     }
 
-    public void setCinema(Cinema cinema) {
-        this.cinema = cinema;
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
-
 }
