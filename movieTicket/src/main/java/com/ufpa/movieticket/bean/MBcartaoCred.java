@@ -20,7 +20,10 @@ public class MBcartaoCred extends AbstractBean {
     private Cartaocred cartaoCred;
 
     public void updateCartaoCred() {
-        getDaoGenerico().update(cartaoCred);
+        try {
+            rmiDaoGenerico().update(cartaoCred);
+        } catch (Exception e) {
+        }
     }
 
 }

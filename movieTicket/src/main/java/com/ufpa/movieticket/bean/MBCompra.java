@@ -32,7 +32,7 @@ public class MBCompra extends AbstractBean {
             compraId.setFkExibicao(pkExibicao);
             compra.setId(compraId);
             compra.setDataCompra(getObjData());
-            getDaoGenerico().save(compra);
+            rmiDaoGenerico().save(compra);
             
             getObjMessage().info("Compra realizada!", "Compra realizada com sucesso");
         } catch (Exception e) {

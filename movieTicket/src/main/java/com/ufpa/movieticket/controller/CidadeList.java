@@ -19,13 +19,15 @@ public class CidadeList extends AbstractController {
     private String tipoPesquisa;
     private String textoPesquisa;
 
-    
     public void listCidade() {
-        listCidade = getDaoGenerico().
-                list("select c from Cidade c where "
-                        + "c." + tipoPesquisa + " like '%" + textoPesquisa + "%'");
-        if (!listCidade.isEmpty()) {
-            getObjMessage().warn("Item não encontrado!", "A cidade não foi encontrada.");
+        try {
+            listCidade = rmiDaoGenerico().
+                    list("select c from Cidade c where "
+                            + "c." + tipoPesquisa + " like '%" + textoPesquisa + "%'");
+            if (!listCidade.isEmpty()) {
+                getObjMessage().warn("Item não encontrado!", "A cidade não foi encontrada.");
+            }
+        } catch (Exception e) {
         }
     }
 

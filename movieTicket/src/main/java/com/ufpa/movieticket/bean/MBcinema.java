@@ -20,19 +20,13 @@ public class MBcinema extends AbstractBean {
 
     private Cinema cinema;
     private CidadeList objListCidade;
-    
-    
-    
-    
-    
-    
-    
+
     public void cadastrarCinema() {
         try {
-            
+
             getObjListCidade().listCidade();
             cinema.setCidade(getObjListCidade().getCidade());
-            getDaoGenerico().save(cinema);
+            rmiDaoGenerico().save(cinema);
             getObjMessage().info("Cadastro efetuado!", "Cinema cadastrado com sucesso");
         } catch (Exception e) {
             getObjMessage().warn("Cadastro não efetuado!", "O cadastro não foi realizado");

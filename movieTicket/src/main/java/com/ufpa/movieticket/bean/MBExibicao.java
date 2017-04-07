@@ -21,7 +21,7 @@ public class MBExibicao extends AbstractBean {
 
     public void cadastrarExibicao() {
         try {
-            getDaoGenerico().save(exibicao);
+            rmiDaoGenerico().save(exibicao);
             getObjMessage().info("Cadastro efetuado!", "Exibição cadastrada com sucesso");
         } catch (Exception e) {
             getObjMessage().warn("Cadastro não efetuado!", "O cadastro não foi realizado");

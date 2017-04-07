@@ -7,9 +7,9 @@ package com.ufpa.movieticket.controller;
 
 import com.ufpa.movieticket.bean.*;
 import com.ufpa.movieticket.DAO.GenericoDAO;
-import com.ufpa.movieticket.DAO.GenericoDAOImpl;
 import com.ufpa.movieticket.tools.FacesMessages;
 import java.io.Serializable;
+import java.rmi.Naming;
 import java.util.Date;
 
 /**
@@ -18,13 +18,13 @@ import java.util.Date;
  */
 public abstract class AbstractController implements Serializable {
 
-    private GenericoDAO daoGenerico;
-
-    public GenericoDAO getDaoGenerico() {
-        if (daoGenerico == null) {
-            daoGenerico = new GenericoDAOImpl();
+    public GenericoDAO rmiDaoGenerico() {
+        try {
+            GenericoDAO obj = (GenericoDAO) Naming.lookup("rmi://192.168.1.101:5001/GenericoDAO");
+            return obj;
+        } catch (Exception e) {
         }
-        return daoGenerico;
+        return null;
     }
 
     private FacesMessages message;

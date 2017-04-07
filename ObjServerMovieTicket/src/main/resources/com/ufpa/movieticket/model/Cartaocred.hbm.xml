@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/04/2017 10:51:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ufpa.movieticket.model.Cartaocred" table="cartaocred" catalog="bd_sistemaCinema" optimistic-lock="version">
+        <composite-id name="id" class="com.ufpa.movieticket.model.CartaocredId">
+            <key-property name="pkCartaocred" type="int">
+                <column name="pk_cartaocred" />
+            </key-property>
+            <key-property name="fkPessoa" type="int">
+                <column name="fk_pessoa" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="pessoa" class="com.ufpa.movieticket.model.Pessoa" update="false" insert="false" fetch="select">
+            <column name="fk_pessoa" not-null="true" />
+        </many-to-one>
+        <property name="numCartao" type="long">
+            <column name="num_cartao" not-null="true" />
+        </property>
+        <property name="codSeguranca" type="int">
+            <column name="cod_seguranca" not-null="true" />
+        </property>
+        <set name="compras" table="compra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_cartaocred" not-null="true" />
+                <column name="cartaocred_fk_pessoa" not-null="true" />
+            </key>
+            <one-to-many class="com.ufpa.movieticket.model.Compra" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -5,9 +5,11 @@
  */
 package com.ufpa.movieticket.bean;
 
+import com.ufpa.movieticket.DAO.GenericoDAO;
 import com.ufpa.movieticket.model.Pessoa;
 import com.ufpa.movieticket.model.Cartaocred;
 import com.ufpa.movieticket.model.CartaocredId;
+import java.rmi.Naming;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -24,13 +26,13 @@ public class MBpessoa extends AbstractBean {
     private boolean termoUso = false;
 
     public void cadastrarCliente() {
+
         try {
             if (termoUso) {
-                getPessoa().setTipoPessoa("cli");
-                getDaoGenerico().save(pessoa);
-                criarCartaoCred(pessoa);
-                getDaoGenerico().save(cartaoCred);
 
+                getPessoa().setTipoPessoa("cli");
+                rmiDaoGenerico().save(pessoa);
+                criarCartaoCred(pessoa);
                 getObjMessage().info("Cadastro efetuado!", "Cliente cadastrado com sucesso");
             }
         } catch (Exception e) {
@@ -42,7 +44,7 @@ public class MBpessoa extends AbstractBean {
     public void cadastrarAdm() {
         try {
             getPessoa().setTipoPessoa("adm");
-            getDaoGenerico().save(pessoa);
+            rmiDaoGenerico().save(pessoa);
             criarCartaoCred(pessoa);
 
             getObjMessage().info("Cadastro efetuado!", "Admoinistrador cadastrado com sucesso");
@@ -53,10 +55,14 @@ public class MBpessoa extends AbstractBean {
     }
 
     private void criarCartaoCred(Pessoa pessoa) {
-        CartaocredId id = new CartaocredId();
-        id.setFkPessoa(pessoa.getPkPessoa());
-        cartaoCred.setId(id);
-        getDaoGenerico().save(cartaoCred);
+        try {
+            GenericoDAO obj = (GenericoDAO) Naming.lookup("rmi://192.168.1.101:5001/GenericoDAO");
+            CartaocredId id = new CartaocredId();
+            id.setFkPessoa(pessoa.getPkPessoa());
+            cartaoCred.setId(id);
+            obj.save(cartaoCred);
+        } catch (Exception e) {
+        }
     }
 
     public Pessoa getPessoa() {

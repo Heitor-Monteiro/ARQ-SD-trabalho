@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/04/2017 10:51:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ufpa.movieticket.model.Cidade" table="cidade" catalog="bd_sistemaCinema" optimistic-lock="version">
+        <id name="pkCidade" type="java.lang.Integer">
+            <column name="pk_cidade" />
+            <generator class="identity" />
+        </id>
+        <property name="nomeCidade" type="string">
+            <column name="nome_cidade" length="45" not-null="true" />
+        </property>
+        <property name="uf" type="string">
+            <column name="uf" length="80" not-null="true" />
+        </property>
+        <set name="cinemas" table="cinema" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_cidade" not-null="true" />
+            </key>
+            <one-to-many class="com.ufpa.movieticket.model.Cinema" />
+        </set>
+    </class>
+</hibernate-mapping>

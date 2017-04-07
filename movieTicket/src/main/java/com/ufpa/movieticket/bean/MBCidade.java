@@ -21,7 +21,7 @@ public class MBCidade extends AbstractBean {
 
     public void cadastrarCidade() {
         try {
-            getDaoGenerico().save(cidade);
+            rmiDaoGenerico().save(cidade);
             getObjMessage().info("Cadastro efetuado!", "Cidade cadastrada com sucesso");
         } catch (Exception e) {
             getObjMessage().warn("Cadastro não efetuado!", "O cadastro não foi realizado");

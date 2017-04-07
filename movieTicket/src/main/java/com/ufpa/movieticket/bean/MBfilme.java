@@ -21,7 +21,7 @@ public class MBfilme extends AbstractBean {
 
     public void cadastrarFilme() {
         try {
-            getDaoGenerico().save(filme);
+            rmiDaoGenerico().save(filme);
             getObjMessage().info("Cadastro efetuado!", "Filme cadastrado com sucesso");
         } catch (Exception e) {
             getObjMessage().warn("Cadastro não efetuado!", "O cadastro não foi realizado");

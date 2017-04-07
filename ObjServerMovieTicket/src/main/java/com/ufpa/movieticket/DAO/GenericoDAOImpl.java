@@ -1,14 +1,18 @@
 package com.ufpa.movieticket.DAO;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 import javax.ejb.Stateless;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 @Stateless
-public class GenericoDAOImpl<T> implements GenericoDAO<T> {
+public class GenericoDAOImpl<T> extends UnicastRemoteObject implements GenericoDAO<T> {
+    
+    public GenericoDAOImpl() throws RemoteException {
+        super();
+    }
     
     /**
      *
