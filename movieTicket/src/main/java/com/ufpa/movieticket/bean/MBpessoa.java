@@ -5,11 +5,12 @@
  */
 package com.ufpa.movieticket.bean;
 
-import com.ufpa.movieticket.DAO.GenericoDAO;
 import com.ufpa.movieticket.model.Pessoa;
 import com.ufpa.movieticket.model.Cartaocred;
 import com.ufpa.movieticket.model.CartaocredId;
-import java.rmi.Naming;
+import com.ufpa.movieticket.controller.PessoaCheckCPF;
+import com.ufpa.movieticket.controller.PessoaCheckExistCPF;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -24,45 +25,74 @@ public class MBpessoa extends AbstractBean {
     private Pessoa pessoa;
     private Cartaocred cartaoCred;
     private boolean termoUso = false;
+    private boolean checkCPF = false;
 
     public void cadastrarCliente() {
-
         try {
-            if (termoUso) {
-
+            startCheckCPF();
+            if (termoUso && checkCPF) {
                 getPessoa().setTipoPessoa("cli");
                 rmiDaoGenerico().save(pessoa);
-                criarCartaoCred(pessoa);
+
+//                CartaocredId id = new CartaocredId();
+//                id.setFkPessoa(pessoa.getPkPessoa());
+//                cartaoCred.setId(id);
+//                
+//                
+//                rmiDaoGenerico().save(cartaoCred);
+
                 getObjMessage().info("Cadastro efetuado!", "Cliente cadastrado com sucesso");
+            } else if (!checkCPF) {
+                getObjMessage().warn("Cadastro não efetuado!", "CPF invalido");
             }
         } catch (Exception e) {
             getObjMessage().warn("Cadastro não efetuado!", "O cadastro não foi realizado");
         }
-
     }
 
     public void cadastrarAdm() {
         try {
-            getPessoa().setTipoPessoa("adm");
-            rmiDaoGenerico().save(pessoa);
-            criarCartaoCred(pessoa);
+            startCheckCPF();
+            if (checkCPF) {
+                getPessoa().setTipoPessoa("adm");
+                rmiDaoGenerico().save(pessoa);
 
-            getObjMessage().info("Cadastro efetuado!", "Admoinistrador cadastrado com sucesso");
+                CartaocredId id = new CartaocredId();
+                id.setFkPessoa(pessoa.getPkPessoa());
+                cartaoCred.setId(id);
+                rmiDaoGenerico().save(cartaoCred);
+                
+                getObjMessage().info("Cadastro efetuado!", "Administrador cadastrado com sucesso");
+            } else if (!checkCPF) {
+                getObjMessage().warn("Cadastro não efetuado!", "CPF invalido");
+            }
         } catch (Exception e) {
             getObjMessage().warn("Cadastro não efetuado!", "O cadastro não foi realizado");
         }
-
     }
 
-    private void criarCartaoCred(Pessoa pessoa) {
-        try {
-            CartaocredId id = new CartaocredId();
-            id.setFkPessoa(pessoa.getPkPessoa());
-            cartaoCred.setId(id);
-            rmiDaoGenerico().save(cartaoCred);
-        } catch (Exception e) {
-        }
+    private void startCheckCPF() {
+        checkCPF = new PessoaCheckCPF().checkCPF(pessoa.getCpf());
     }
+
+//    private void salvePessoa(String tipo) {
+//        try {
+//            getPessoa().setTipoPessoa(tipo);
+//            Pessoa pess = pessoa;
+//            rmiDaoGenerico().save(pessoa);
+//            criarCartaoCred(pess);
+//        } catch (Exception e) {
+//        }
+//    }
+//    private void criarCartaoCred(Pessoa pessoa) {
+//        try {
+//            CartaocredId id = new CartaocredId();
+//            id.setFkPessoa(pessoa.getPkPessoa());
+//            cartaoCred.setId(id);
+//            rmiDaoGenerico().save(cartaoCred);
+//        } catch (Exception e) {
+//        }
+//    }
 
     public Pessoa getPessoa() {
         if (pessoa == null) {

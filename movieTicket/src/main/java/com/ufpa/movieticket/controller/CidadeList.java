@@ -6,13 +6,14 @@
 package com.ufpa.movieticket.controller;
 
 import com.ufpa.movieticket.model.Cidade;
+import com.ufpa.movieticket.bean.AbstractBean;
 import java.util.List;
 
 /**
  *
  * @author thiberius
  */
-public class CidadeList extends AbstractController {
+public class CidadeList extends AbstractBean {
 
     private Cidade cidade;
     private List<Cidade> listCidade;

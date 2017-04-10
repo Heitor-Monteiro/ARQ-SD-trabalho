@@ -6,7 +6,6 @@
 package com.ufpa.movieticket.bean;
 
 import com.ufpa.movieticket.DAO.GenericoDAO;
-//import com.ufpa.movieticket.DAO.GenericoDAOImpl;
 import com.ufpa.movieticket.tools.FacesMessages;
 import java.io.Serializable;
 import java.rmi.Naming;

@@ -23,7 +23,6 @@ public class MBcinema extends AbstractBean {
 
     public void cadastrarCinema() {
         try {
-
             getObjListCidade().listCidade();
             cinema.setCidade(getObjListCidade().getCidade());
             rmiDaoGenerico().save(cinema);
